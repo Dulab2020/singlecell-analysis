@@ -27,8 +27,8 @@ p = ggboxplot(data, x = "cluster", y = "SUCLG1", color = "type",
             legend.title="",
             palette = bioCol,
             width = 0.7)
-#p=p+rotate_x_text(60)#x???????????????
-p1 = p + stat_compare_means(aes(group=type), symnum.args=list(cutpoints = c(0, 0.001, 0.01, 0.05, 1), symbols = c("***", "**", "*", " ")), label = "p.signif")
+#p=p+rotate_x_text(60)
+p1 = p + stat_compare_means(aes(group=type), symnum.args=list(cutpoints = c(0, 0.001, 0.01, 0.05, 1), symbols = c("***", "**", "*", " ")), label = "p.signif", method = 'kruskal.test')
 #p1=p1+geom_point(aes(color=type),position = position_jitterdodge(),size=0.5) +
 p1 = p1 + theme(legend.position = c(0.8, 0.9), legend.background = element_blank(), legend.key = element_blank(),
             panel.border = element_rect(linetype = 'solid', size = 0.3, fill = NA))+
